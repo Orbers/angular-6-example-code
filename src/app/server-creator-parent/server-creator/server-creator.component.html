@@ -1,0 +1,9 @@
+<h3>Server creator event emitter</h3>
+<app-server-cockpit 
+  (newServer)="serverAdded($event)" 
+  (newBlueprint)="blueprintAdded($event)"></app-server-cockpit>
+
+<app-server-display 
+  *ngFor="let server of servers"
+  [server]="server"></app-server-display>
+  
