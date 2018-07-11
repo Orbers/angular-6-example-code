@@ -13,7 +13,6 @@ export class SpaceshipDisplayComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.spaceship);
   }
 
 }

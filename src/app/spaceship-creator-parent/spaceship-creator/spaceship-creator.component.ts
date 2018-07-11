@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Spaceship } from '../spaceship.model';
+import { SpaceshipService } from '../spaceship.service';
 
 @Component({
   selector: 'app-spaceship-creator',
@@ -8,22 +9,16 @@ import { Spaceship } from '../spaceship.model';
 })
 export class SpaceshipCreatorComponent implements OnInit {
 
-  spaceships: Spaceship[] = [];
-
+  spaceships: Spaceship[] = []
   
-  shuttleAdded(shuttle: Spaceship) {
-    this.spaceships.push(shuttle);
-    console.log(this.spaceships);
-  }
-
-  rocketAdded(rocket: Spaceship) {
-    this.spaceships.push(rocket);
-    console.log(this.spaceships);
-  }
-
-  constructor() { }
+  constructor(private spaceshipService: SpaceshipService) {
+    this.spaceshipService.newSpaceshipNotification.subscribe(
+      (name: string) => alert('new spaceship name ' + name)
+    );
+   }
 
   ngOnInit() {
+    this.spaceships = this.spaceshipService.getSpaceships();
   }
 
 }

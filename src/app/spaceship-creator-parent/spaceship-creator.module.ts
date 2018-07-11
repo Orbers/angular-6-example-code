@@ -26,4 +26,4 @@ import { SpaceshipDisplayComponent } from './spaceship-display/spaceship-display
   providers: [],
   
 })
-export class ServerCreatorModule { }
+export class SpaceshipCreatorModule { }

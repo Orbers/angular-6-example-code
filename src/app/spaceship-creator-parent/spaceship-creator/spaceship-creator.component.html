@@ -1,7 +1,5 @@
 <h3>Spaceship Creator Services</h3>
-<app-spaceship-cockpit
-    (newShuttle)="shuttleAdded($event)"
-    (newRocket)="rocketAdded($event)"></app-spaceship-cockpit>
+<app-spaceship-cockpit></app-spaceship-cockpit>
 <app-spaceship-display
     *ngFor="let spaceship of spaceships"
     [spaceship]="spaceship"></app-spaceship-display>

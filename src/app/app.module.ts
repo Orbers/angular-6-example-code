@@ -7,26 +7,23 @@ import { AppComponent } from './app.component';
 import { TimerGameComponent } from './timer-game-parent/timer-game/timer-game.component';
 import { TimerGameDashboardComponent } from './timer-game-parent/timer-game-dashboard/timer-game-dashboard.component';
 import { ServerCreatorModule } from './server-creator-parent/server-creator.module';
-import { SpaceshipCockpitComponent } from './spaceship-creator-parent/spaceship-cockpit/spaceship-cockpit.component';
-import { SpaceshipCreatorComponent } from './spaceship-creator-parent/spaceship-creator/spaceship-creator.component';
-import { SpaceshipDisplayComponent } from './spaceship-creator-parent/spaceship-display/spaceship-display.component';
+import { SpaceshipCreatorModule } from './spaceship-creator-parent/spaceship-creator.module';
+import { SpaceshipService } from './spaceship-creator-parent/spaceship.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     TimerGameComponent,
-    TimerGameDashboardComponent,
-    SpaceshipCockpitComponent,
-    SpaceshipCreatorComponent,
-    SpaceshipDisplayComponent
+    TimerGameDashboardComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    ServerCreatorModule
+    ServerCreatorModule,
+    SpaceshipCreatorModule
   ],
-  providers: [],
+  providers: [SpaceshipService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

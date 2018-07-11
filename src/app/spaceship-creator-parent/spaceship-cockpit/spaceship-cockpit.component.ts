@@ -1,5 +1,5 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { Spaceship } from '../spaceship.model';
+import { Component, OnInit} from '@angular/core';
+import { SpaceshipService } from '../spaceship.service';
 
 @Component({
   selector: 'app-spaceship-cockpit',
@@ -9,25 +9,20 @@ import { Spaceship } from '../spaceship.model';
 export class SpaceshipCockpitComponent implements OnInit {
 
   name = '';
-
-  @Output() newShuttle: EventEmitter<Spaceship> = new EventEmitter();
-  @Output() newRocket: EventEmitter<Spaceship> = new EventEmitter();
   
-  constructor() { }
+  constructor( private spaceshipService: SpaceshipService) { }
 
   ngOnInit() {
   }
 
   addShuttle() {
-    this.newShuttle.emit(
-      new Spaceship(this.name, 'shuttle')
-    )
+    this.spaceshipService.shuttleAdded(this.name, 'shuttle');
+    this.spaceshipService.newSpaceshipNotification.emit(this.name);
   }
 
   addRocket() {
-    this.newRocket.emit(
-      new Spaceship(this.name, 'rocket')
-    )
+    this.spaceshipService.rocketAdded(this.name, 'rocket');
+    this.spaceshipService.newSpaceshipNotification.emit(this.name);
   }
 
 }
