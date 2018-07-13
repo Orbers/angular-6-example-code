@@ -1,0 +1,5 @@
+<h3>Pet Observables</h3>
+<app-pet-cockpit></app-pet-cockpit>
+<app-pet-display
+    *ngFor="let pet of pets"
+    [pet]="pet"></app-pet-display>
